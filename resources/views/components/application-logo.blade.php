@@ -1,0 +1,1 @@
+<img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="{{ $attributes->get('class') }}" style="width: 100px;">

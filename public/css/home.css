@@ -1,0 +1,104 @@
+/* home.css */
+
+
+    #map { 
+        height: 500px; 
+        width: 100%; 
+        z-index: 1; 
+    }
+    .service-card {
+        transition: transform 0.2s ease-in-out;
+    }
+    .service-card:hover {
+        transform: translateY(-10px);
+        background-color: #f0f7ff;
+    }
+
+
+.nav-link {
+    transition: all 0.3s ease !important;
+    color: white !important; /* Hakikisha maandishi ni meupe */
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important; /* Rangi ya njano ikikolea ukigusa */
+    opacity: 1 !important;
+    text-decoration: underline !important;
+    transform: translateY(-2px); /* Inajisogeza juu kidogo */
+}
+
+
+    /* Hero section inayojaza kioo */
+    .hero-wrapper {
+        min-height: 85vh; /* Inajaza kioo lakini inaacha nafasi ya navbar/footer */
+        background: linear-gradient(rgba(0, 33, 71, 0.7), rgba(0, 33, 71, 0.7)), 
+                    url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 3rem;
+        color: white;
+        max-width: 700px;
+        width: 90%;
+    }
+
+    .feature-badge {
+        background: #ffc107;
+        color: #000;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+
+    .btn-craftsman-big {
+        background: #ffc107;
+        color: #000;
+        font-weight: 800;
+        padding: 18px 35px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        border: none;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-craftsman-big:hover {
+        background: #e5ac00;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        color: #000;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+
+    .benefit-item i {
+        background: rgba(255,255,255,0.2);
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 15px;
+        color: #ffc107;
+    }

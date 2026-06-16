@@ -1,0 +1,193 @@
+/* Hakikisha main content haijifichi chini ya navbar */
+body.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+    padding-top: 56px;
+    padding-left: 225px;
+}
+
+/* Sidebar ikiwa imefichwa (toggled) */
+body.sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
+    padding-left: 0;
+}
+
+/* Kurekebisha muonekano wa navbar kwenye simu */
+@media (max-width: 991.98px) {
+    body.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+        padding-left: 0;
+    }
+}
+
+/* Mitindo ya Navbar */
+.sb-topnav {
+    height: 56px;
+    z-index: 1039;
+}
+
+/* --- Mpangilio wa Sidebar (Core Layout) --- */
+#layoutSidenav {
+    display: flex;
+}
+
+#layoutSidenav #layoutSidenav_nav {
+    flex-basis: 225px; /* Upana wa sidebar */
+    flex-shrink: 0;
+    transition: transform 0.15s ease-in-out;
+    z-index: 1038;
+}
+
+/* Hakikisha layout nzima inajaa screen */
+#layoutSidenav {
+    display: flex;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Hii ndiyo div ya content */
+#layoutSidenav #layoutSidenav_content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; /* Inachukua nafasi yote iliyobaki */
+    min-width: 0;
+    min-height: calc(100vh - 56px); /* 56px ni kimo cha navbar */
+    margin-left: 0;
+    transition: margin 0.15s ease-in-out;
+}
+
+/* Inapokuwa kwenye Desktop na sidebar ipo fixed */
+.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+    padding-left: 225px; /* Hii inasukuma content pembeni ya sidebar */
+    top: 56px; /* Inashuka chini ya navbar */
+}
+
+/* Sidebar ikifichwa (Toggled) */
+.sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
+    padding-left: 0 !important;
+}
+
+/* Kwenye Simu (Mobile) */
+@media (max-width: 991.98px) {
+    .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+        padding-left: 0;
+    }
+}
+
+/* --- Muonekano wa Sidebar (Dark Theme) --- */
+.sb-sidenav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-wrap: nowrap;
+    background-color: #212529; /* Rangi ya giza */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.sb-sidenav .sb-sidenav-menu {
+    flex-grow: 1;
+}
+
+.custom-navbar {
+    /* Hii ndio rangi kutoka kwenye color.png */
+    background-color: #d1e0f7 !important; 
+}
+
+/* Kurekebisha rangi ya maandishi na icons yawe meusi ili yasipotee kwenye rangi nyepesi */
+.custom-navbar .navbar-brand, 
+.custom-navbar .nav-link, 
+.custom-navbar #sidebarToggle {
+    color: #333333 !important;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #000000 !important;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
+    padding: 1.75rem 1rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link {
+    display: flex;
+    align-items: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.15s ease-in-out;
+    text-decoration: none;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
+    margin-right: 0.5rem;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link:hover {
+    color: #fff;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05); /* Rangi ikikaliwa */
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link.active .sb-nav-link-icon {
+    color: #fff;
+}
+
+/* --- Dropdown Arrows --- */
+.sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
+    display: inline-block;
+    margin-left: auto;
+    transition: transform 0.15s ease-in-out;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
+    transform: rotate(-90deg);
+}
+
+/* --- Sidebar Footer --- */
+.sb-sidenav-footer {
+    padding: 0.75rem;
+    background-color: #343a40;
+    font-size: 0.85rem;
+}
+
+/* --- Kuficha na Kuonyesha Sidebar (Toggling) --- */
+@media (min-width: 992px) {
+    #layoutSidenav #layoutSidenav_content {
+        margin-left: 0;
+    }
+    .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
+        transform: translateX(-225px);
+    }
+    .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
+        margin-left: -225px;
+    }
+}
+
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
+    width: 225px;
+    height: 100vh;
+    position: fixed;
+    top: 56px;
+    left: 0;
+}
+
+.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+    padding-left: 225px;
+    top: 56px;
+}
+
+.sb-sidenav-toggled.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+    padding-left: 0;
+}
