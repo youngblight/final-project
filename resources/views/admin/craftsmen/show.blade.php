@@ -7,12 +7,13 @@
     #layoutSidenav_nav { position: fixed !important; top: 56px; height: calc(100vh - 56px); z-index: 1038; }
     #layoutSidenav_content { padding-top: 56px; height: 100vh; overflow-y: auto; }
     .bg-success-soft { background-color: rgba(25, 135, 84, 0.1); }
+    .bg-danger-soft { background-color: rgba(220, 53, 69, 0.1); }
 </style>
 
 <div class="container-fluid px-4 py-4">
     {{-- Header Section --}}
-    <div class="text-center mb-5">
-        <h1 class="fw-bold text-dark display-6">Craftsmen Profile</h1>
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-dark display-6">Craftsman Profile</h1>
         <p class="text-muted small">Viewing detailed information for <strong>{{ $craftsman->full_name }}</strong></p>
         
         <div class="d-flex justify-content-center mt-3">
@@ -26,8 +27,20 @@
         </div>
     </div>
 
+    {{-- Session Alerts --}}
+    @if(session('success'))
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                    <i class="fas fa-check-circle me-1"></i> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="row justify-content-center pb-5">
-        <div class="col-md-9"> {{-- Nimepanua kidogo ili table ikae vizuri --}}
+        <div class="col-md-9">
             <div class="card shadow-sm border-0 p-4 rounded-4">
                 {{-- Profile Info --}}
                 <div class="text-center mb-4">
@@ -39,6 +52,15 @@
 
                     <h2 class="fw-bold mt-3 mb-1 text-dark">{{ $craftsman->full_name }}</h2>
                     <span class="badge bg-primary px-3 py-2 rounded-pill shadow-sm">{{ $craftsman->skill_category }}</span>
+                    
+                    {{-- Display Block Status Badge --}}
+                    @if(optional($craftsman->user)->is_blocked)
+                        <div class="mt-2">
+                            <span class="badge bg-danger-soft text-danger border border-danger px-3 py-1 rounded-pill">
+                                <i class="fas fa-ban me-1"></i> Account Blocked
+                            </span>
+                        </div>
+                    @endif
                 </div>
                 
                 <hr class="text-muted opacity-25">
@@ -58,7 +80,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- Tumia optional kuzuia null error --}}
                                 @forelse($craftsman->jobRequests ?? [] as $job)
                                     @if($job->payment)
                                     <tr>
@@ -87,15 +108,84 @@
 
                 <hr class="text-muted opacity-25 mt-4">
 
-                {{-- Admin Controls --}}
-                <div class="mt-4 d-flex justify-content-center gap-3">
+                {{-- REVIEWS & COMMENTS MODERATION SECTION --}}
+                <div class="mt-4">
+                    <h6 class="fw-bold text-dark mb-3"><i class="fas fa-comments me-2 text-warning"></i>Customer Reviews & Ratings</h6>
+                    <div class="list-group list-group-flush border rounded-3 overflow-hidden">
+                        @php
+                            $hasReviews = false;
+                        @endphp
+                        @foreach($craftsman->jobRequests ?? [] as $job)
+                            @if($job->rating || $job->comment)
+                                @php $hasReviews = true; @endphp
+                                <div class="list-group-item p-3 d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-1">
+                                            <strong class="text-dark">{{ $job->user->name ?? 'Customer' }}</strong>
+                                            @if($job->rating)
+                                                <span class="badge bg-warning text-dark"><i class="fas fa-star text-white"></i> {{ $job->rating }}</span>
+                                            @endif
+                                            <small class="text-muted">({{ $job->updated_at->format('d M, Y') }})</small>
+                                        </div>
+                                        <p class="mb-0 text-muted small">{{ $job->comment ?? 'No comment provided.' }}</p>
+                                    </div>
+                                    
+                                    {{-- Delete Comment Button --}}
+                                    <form action="{{ route('admin.comments.delete', $job->id) }}" method="POST" onsubmit="return confirm('Je, una uhakika unataka kufuta maoni haya?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-circle" title="Futa Maoni">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            @endif
+                        @endforeach
+
+                        @if(!$hasReviews)
+                            <div class="list-group-item text-center text-muted small py-4">
+                                <i class="fas fa-comment-slash me-1"></i> No reviews or comments recorded for this craftsman yet.
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <hr class="text-muted opacity-25 mt-4">
+
+                {{-- ADMIN CONTROLS --}}
+                <div class="mt-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
                     @if($craftsman->status == 'pending')
-                    <form action="{{ route('admin.craftsmen.approve', $craftsman->id) }}" method="POST">
-                        @csrf @method('PATCH')
-                        <button type="submit" class="btn btn-success px-5 rounded-pill shadow fw-bold">Approve Profile</button>
-                    </form>
+                        <form action="{{ route('admin.craftsmen.approve', $craftsman->id) }}" method="POST">
+                            @csrf 
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-success px-4 rounded-pill shadow-sm fw-bold">
+                                <i class="fas fa-check me-1"></i> Approve Profile
+                            </button>
+                        </form>
                     @endif
-                    <button class="btn btn-outline-danger px-4 rounded-pill" onclick="return confirm('Futa fundi huyu?')">Delete Profile</button>
+
+                    {{-- Block / Unblock User Form --}}
+                    @if($craftsman->user)
+                        <form action="{{ route('admin.users.block', $craftsman->user->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn {{ $craftsman->user->is_blocked ? 'btn-outline-success' : 'btn-warning' }} px-4 rounded-pill shadow-sm">
+                                <i class="fas {{ $craftsman->user->is_blocked ? 'fa-unlock' : 'fa-ban' }} me-1"></i>
+                                {{ $craftsman->user->is_blocked ? 'Fungulia Account' : 'Block User' }}
+                            </button>
+                        </form>
+                    @endif
+
+                    {{-- Delete Profile Form --}}
+                    @if($craftsman->user)
+                        <form action="{{ route('admin.users.destroy', $craftsman->user->id) }}" method="POST" onsubmit="return confirm('Je, una uhakika unataka kumfuta fundi huyu kikamilifu?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger px-4 rounded-pill">
+                                <i class="fas fa-trash me-1"></i> Delete Profile
+                            </button>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>

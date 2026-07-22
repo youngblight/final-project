@@ -24,25 +24,33 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        // 1. Hakikisha email na password ni sahihi
         $request->authenticate();
 
-        $request->session()->regenerate();
-
-        // 1. Get the authenticated user
         $user = Auth::user();
 
-        // 2. Custom Redirect Logic based on Role
+        // 2. ANGALIA KAMA MTUMIAJI AMEBLOKIWA (IS_BLOCKED)
+        if ($user->is_blocked) {
+            // Mtoe nje mara moja
+            Auth::guard('web')->logout();
+
+            // Batilisha session
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            // Mtoe nje na ujumbe wa kosa
+            return redirect()->route('login')->with('error', 'Akaunti yako imefungwa (Blocked) na Admin. Tafadhali wasiliana na msaada.');
+        }
+
+        // 3. Kama hajablokiwa, regeneratets session
+        $request->session()->regenerate();
+
+        // 4. Custom Redirect Logic based on Role
         if ($user->role === 'admin') {
             return redirect()->intended(route('admin.dashboard'));
         } 
         
         if ($user->role === 'craftsmen') {
-            // Optional: Check if they are approved before letting them in
-            // if ($user->craftsmanProfile && $user->craftsmanProfile->status !== 'approved') {
-            //     Auth::guard('web')->logout();
-            //     return redirect()->route('login')->with('error', 'Your account is pending admin approval.');
-            // }
-            
             return redirect()->intended(route('craftsmen.dashboard'));
         }
 

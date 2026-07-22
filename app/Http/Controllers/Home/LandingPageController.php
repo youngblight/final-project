@@ -46,20 +46,22 @@ class LandingPageController extends Controller
         $messages = collect(); 
 
         if (Auth::check()) {
+            // 1. Tunatafuta ombi la kazi lililo hai (Tumeongeza 'pending' hapa)
             $active_job = JobRequest::where('user_id', Auth::id())
                 ->where('craftsman_id', $id)
-                ->whereIn('status', ['accepted', 'in_progress', 'completed'])
+                ->whereIn('status', ['pending', 'accepted', 'in_progress', 'completed'])
                 ->latest()
                 ->first();
 
-            if (class_exists('\App\Models\Message')) {
-                $messages = \App\Models\Message::where(function($query) use ($id) {
-                    $query->where('user_id', Auth::id())
-                          ->where('craftsman_id', $id);
-                })->orderBy('created_at', 'asc')->get();
+            // 2. Kama kuna kazi ipo, tunavuta meseji zote zilizounganishwa na ID ya kazi hiyo
+            if ($active_job) {
+                $messages = Message::where('job_id', $active_job->id)
+                    ->orderBy('created_at', 'asc')
+                    ->get();
             }
         }
 
+        // Hapa tunatuma data zote kwenda kwenye view ya 'services.craftsman_profile'
         return view('services.craftsman_profile', compact('craftsman', 'active_job', 'messages'));
     }
 }

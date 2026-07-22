@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Connection - Home Page</title>
+    <title>Digital Connection - Ukurasa wa Nyumbani</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="/home">Home</a>
+                        <a class="nav-link text-white fw-bold px-3" href="/home">Nyumbani</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="#">About Us</a>
+                        <a class="nav-link text-white fw-bold px-3" href="#">Kuhusu Sisi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="#">Contact Us</a>
+                        <a class="nav-link text-white fw-bold px-3" href="#">Wasiliana Nasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="#">Services Available</a>
+                        <a class="nav-link text-white fw-bold px-3" href="#">Huduma Zinazopatikana</a>
                     </li>
                 </ul>
 
@@ -42,7 +42,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="btn btn-dark btn-sm fw-bold px-4 rounded-pill shadow-sm">
-                            <i class="fas fa-sign-out-alt me-1"></i> LOGOUT
+                            <i class="fas fa-sign-out-alt me-1"></i> ONDOKA
                         </button>
                     </form>
                 </div>

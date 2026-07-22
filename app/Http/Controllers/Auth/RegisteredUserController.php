@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -28,29 +28,42 @@ class RegisteredUserController extends Controller
      *
      * @throws ValidationException
      */
-    public function store(Request $request)
-{
-    $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        
-    ]);
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(8)          
+                    ->letters()       
+                    ->mixedCase()         
+                    ->numbers()           
+                    ->symbols()           
+                    ->uncompromised(),
+            ],
+        ], [
+            // Ujumbe wa usaidizi kwa Kiswahili
+            'name.required' => 'Tafadhali weka jina lako.',
+            'email.required' => 'Tafadhali weka barua pepe (email) yako.',
+            'email.unique' => 'Barua pepe hii tayari imeshasajiliwa.',
+            'password.required' => 'Tafadhali weka nenosiri (password).',
+            'password.confirmed' => 'Nenosiri ulilorudia halifanani na la kwanza.',
+        ]);
 
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'role' => 'user', // AU 'customer' - Hakikisha unampa role hapa!
-    ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'user', 
+        ]);
 
-    event(new Registered($user));
+        event(new Registered($user));
 
-Auth::login($user);
+        Auth::login($user);
 
-
-    // Akichagua kuwa Mteja (User), mpeleke kwenye Home Page ya ramani moja kwa moja
-    // Hakikisha jina la route ni 'home.page' kama tulivyopanga awali
-    return redirect()->route('home.page');
-}
+        // Mpeleke mteja kwenye homepage baada ya usajili
+        return redirect()->route('home.page');
+    }
 }

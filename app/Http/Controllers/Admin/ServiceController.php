@@ -25,7 +25,7 @@ class ServiceController extends Controller
     {
         $request->validate([
             'name'  => 'required|unique:services',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:4048',
             'icon'  => 'required'
         ]);
 
@@ -56,7 +56,7 @@ class ServiceController extends Controller
         $request->validate([
             'name'  => 'required|unique:services,name,' . $service->id,
             'icon'  => 'required',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048'
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:4048'
         ]);
 
         $data = [

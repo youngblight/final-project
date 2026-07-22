@@ -18,4 +18,13 @@ class UserController extends Controller
         $user->delete();
         return back()->with('success', 'User Deleted Successfully');
     }
-}
+    public function toggleBlock($id)
+   {
+    $user = User::findOrFail($id);
+    $user->is_blocked = !$user->is_blocked;
+    $user->save();
+
+    $status = $user->is_blocked ? 'Ameblokiwa' : 'Amecomfirmed kufunguliwa';
+     return back()->with('success', "Mtumiaji {$status} kikamilifu!");
+    }
+  }

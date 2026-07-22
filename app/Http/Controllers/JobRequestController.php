@@ -10,7 +10,7 @@ class JobRequestController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'craftsman_id'    => 'required|exists:users,id',
+            'craftsman_id' => 'required|exists:craftsmen,id',
             'job_description' => 'required|string',
             'location'        => 'required|string',
             'customer_phone'  => 'required',
@@ -26,7 +26,7 @@ class JobRequestController extends Controller
         ]);
 
         return redirect()->back()
-            ->with('success', 'Your job request has been sent successfully! Please wait for the craftsman to respond.');
+            ->with('success', 'Ombi lako la kazi limetumwa kikamilifu! Tafadhali subiri fundi akujibu.');
     }
 
     public function accept(Request $request, $id)

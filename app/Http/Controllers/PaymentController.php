@@ -14,37 +14,46 @@ class PaymentController extends Controller
     {
         $job = JobRequest::findOrFail($jobId);
 
+        // Uhakiki wa data zinazoingia
         $request->validate([
             'payment_method' => 'nullable|string',
             'phone_number'   => 'required|digits:10',
             'pin'            => 'required|digits:4',
         ]);
 
+        // Hakikisha bei imewekwa kabla ya kukokotoa
+        if (!$job->agreed_price || $job->agreed_price <= 0) {
+            return redirect()->back()
+                ->with('error', 'Fundi bado hajaweka bei ya kazi hii au bei si sahihi.');
+        }
+
         $total_amount  = $job->agreed_price;
-        $amount_to_pay = $total_amount * 0.5; 
+        $amount_to_pay = $total_amount * 0.5; // Asilimia 50 ya malipo
         $new_status    = "";
         $message       = "";
         $show_rating   = false; 
 
-        if ($job->status == 'accepted') {
+        // Tumeruhusu 'accepted' PAMOJA na 'offer_sent' kwa ajili ya malipo ya awali
+        if ($job->status == 'accepted' || $job->status == 'offer_sent') {
             $new_status  = 'in_progress'; 
-            $message     = "The 50% deposit (Tsh " . number_format($amount_to_pay) . ") has been received. The craftsman is starting work now!";
+            $message     = "Malipo ya awali ya 50% (Tsh " . number_format($amount_to_pay) . ") yamepokelewa. Fundi anaanza kazi sasa hivi!";
             $show_rating = false; 
-        } elseif ($job->status == 'completed') {
+        } elseif ($job->status == 'completed' || $job->status == 'in_progress') {
             $new_status  = 'fully_paid'; 
-            $message     = "Final payment completed successfully. Thank you for using Fundi Digital!";
+            $message     = "Malipo ya mwisho yamekamilika kikamilifu. Ahsante kwa kutumia Fundi Digital!";
             $show_rating = true; 
         } else {
-            return redirect()->route('home.page')
-                ->with('error', 'The current status of this job does not allow payments at this time.');
+            return redirect()->back()
+                ->with('error', 'Hali ya sasa ya kazi hii hairuhusu kufanya malipo kwa sasa.');
         }
 
-        $isSuccessful = true; 
+        $isSuccessful = true; // Kuiga (Simulate) kuwa malipo yamefanikiwa
 
         if ($isSuccessful) {
             try {
                 DB::beginTransaction();
 
+                // Kutengeneza kumbukumbu ya malipo
                 Payment::create([
                     'job_request_id' => $job->id,
                     'user_id'        => auth()->id(),
@@ -54,6 +63,7 @@ class PaymentController extends Controller
                     'status'         => 'completed',
                 ]);
 
+                // Kunasibisha hali mpya ya kazi
                 $job->status = $new_status;
                 $job->save();
 
@@ -68,16 +78,17 @@ class PaymentController extends Controller
             } catch (\Exception $e) {
                 DB::rollback();
                 return redirect()->back()
-                    ->with('error', 'A technical error occurred: ' . $e->getMessage());
+                    ->with('error', 'Hitilafu ya kiufundi imetokea: ' . $e->getMessage());
             }
         }
 
         return redirect()->back()
-            ->with('error', 'Transaction failed. Please try again.');
+            ->with('error', 'Muamala umefeli. Tafadhali jaribu tena.');
     }
 
     public function rateJob(Request $request, $id)
     {
+        // Uhakiki wa maoni na nyota
         $request->validate([
             'rating'  => 'required|integer|min:1|max:5',
             'comment' => 'required|string|max:500',
@@ -85,12 +96,13 @@ class PaymentController extends Controller
 
         $job = JobRequest::findOrFail($id);
 
+        // Kusasisha mfumo wa maoni
         $job->update([
             'rating'  => $request->rating,
             'comment' => $request->comment,
         ]);
 
         return redirect()->route('home.page')
-            ->with('success', 'Thank you! Your feedback has been published publicly.');
+            ->with('success', 'Ahsante! Maoni yako yamechapishwa hadharani.');
     }
 }

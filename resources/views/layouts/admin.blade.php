@@ -7,24 +7,22 @@
     <title>Admin Dashboard | Fundi Digital</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet" />
 
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
     <style>
         body {
-            /* Prevent horizontal scrolling layout shifting issues */
             overflow-x: hidden;
         }
 
-        /* 1. Fixed top navigation bar configuration */
+        /* Fixed top navigation bar configuration */
         .custom-navbar.sb-topnav {
             position: fixed;
             top: 0;
             right: 0;
             left: 0;
-            z-index: 1039; /* Keeps the navbar stacked on top of all other elements */
+            z-index: 1039;
             height: 56px;
         }
 
@@ -34,22 +32,19 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            /* Offset main content downward by 56px so it isn't hidden under the fixed navbar */
             padding-top: 56px; 
         }
 
-        /* 2. DESKTOP VIEWPORTS (Large Screen Configurations) */
+        /* DESKTOP VIEWPORTS */
         @media (min-width: 992px) {
-            /* Force the left sidebar layout wrapper to stay sticky/fixed while scrolling */
             #layoutSidenav_nav {
                 position: fixed;
-                top: 56px; /* Aligns perfectly right underneath the top navigation bar */
+                top: 56px;
                 left: 0;
                 width: 225px;
-                height: calc(100vh - 56px); /* Dynamic calculation to fill remaining viewport height */
+                height: calc(100vh - 56px);
                 z-index: 1035;
                 transition: transform 0.3s ease-in-out;
-                /* Enables scrolling inside the sidebar independently if navigation links overflow */
                 overflow-y: auto; 
             }
 
@@ -59,7 +54,7 @@
             }
         }
 
-        /* 3. SIDEBAR TOGGLED: Slides sidebar completely out of desktop viewport view and expands main panel */
+        /* SIDEBAR TOGGLED */
         .sb-sidenav-toggled #layoutSidenav_nav {
             transform: translateX(-225px);
         }
@@ -69,7 +64,7 @@
             width: 100% !important;
         }
 
-        /* 4. MOBILE VIEWPORTS (Small Screen Configurations) */
+        /* MOBILE VIEWPORTS */
         @media (max-width: 991.98px) {
             #layoutSidenav_nav {
                 position: fixed;
@@ -77,7 +72,6 @@
                 left: 0;
                 width: 225px;
                 height: calc(100vh - 56px);
-                /* High z-index overlay to safely sit above mobile layout layers when toggled open */
                 z-index: 1040; 
                 transform: translateX(-225px);
                 transition: transform 0.3s ease-in-out;
@@ -114,7 +108,7 @@
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small text-muted">
                         <div class="text-center w-100">
-                            Copyright &copy; **Digital Connection** 2026 | Siraju Mshamu
+                            Copyright &copy; <strong>Digital Connection</strong> 2026 | Siraju Mshamu
                         </div>
                     </div>
                 </div>
@@ -129,7 +123,6 @@
         window.addEventListener('DOMContentLoaded', event => {
             const sidebarToggle = document.body.querySelector('#sidebarToggle');
             
-            /* Check local storage parameters to retain user toggle states across page reloads */
             if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
                 document.body.classList.add('sb-sidenav-toggled');
             }

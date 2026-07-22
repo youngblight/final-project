@@ -36,6 +36,12 @@ public function isCraftsman() {
     return $this->role === 'craftsmen';
 }
 
+ public function craftsmen()
+ {
+    // Inachukulia kwamba kwenye jedwali la craftsmen una safu ya 'user_id'
+    return $this->hasOne(Craftsmen::class, 'user_id'); 
+ }
+
   // Uhusiano na Profile ya Fundi
   public function craftsmanProfile() {
     return $this->hasOne(Craftsmen::class);

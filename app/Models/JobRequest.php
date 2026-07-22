@@ -33,7 +33,6 @@ class JobRequest extends Model
 
     /**
      * Uhusiano na Mteja (User aliyetuma ombi).
-     * Ombi moja linatoka kwa mteja mmoja.
      */
     public function user(): BelongsTo
     {
@@ -42,7 +41,6 @@ class JobRequest extends Model
 
     /**
      * Uhusiano na Fundi (Craftsman aliyetumiwa ombi).
-     * Ombi moja linaenda kwa fundi mmoja.
      */
     public function craftsmen(): BelongsTo
     {
@@ -50,19 +48,34 @@ class JobRequest extends Model
     }
 
     /**
+     * Uhusiano na Ujumbe/Messages.
+     * Hakikisha column ya kwenye table ya 'messages' inalingana (mfano: job_request_id au job_id).
+     */
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class, 'job_request_id')->orderBy('created_at', 'asc');
+    }
+
+    /**
+     * FUNGUO MPYA: Kuhesabu idadi ya meseji mpya ambazo bado hazojasomwa.
+     * Inaangalia meseji zisizo za aliyelogin (auth) na ambazo 'is_read' ni false/0.
+     */
+    public function unreadMessagesCount(): int
+    {
+        return $this->messages()
+                    ->where('sender_id', '!=', auth()->id())
+                    ->where('is_read', false)
+                    ->count();
+    }
+
+    /**
      * Uhusiano na Malipo.
-     * Kazi moja inakuwa na malipo makuu mmoja.
      */
     public function payment(): HasOne
     {
         return $this->hasOne(Payment::class, 'job_request_id');
     }
 
-    /**
-     * Angalizo kuhusu function hii:
-     * Kawaida function ya 'hasMany' ya JobRequests huwa inakaa kwenye Model ya 'Craftsmen'.
-     * Kama umeamua kuiweka hapa kwa ajili ya kujihusisha yenyewe (Self-referencing), iko sawa.
-     */
     public function jobRequests(): HasMany
     {
         return $this->hasMany(JobRequest::class, 'craftsman_id');

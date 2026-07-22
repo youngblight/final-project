@@ -12,17 +12,17 @@
             <div class="sb-sidenav-menu-heading">Management</div>
             
             <!-- User Roles Dropdown -->
-            <a class="nav-link {{ request()->is('admin/role*') ? '' : 'collapsed' }} {{ request()->is('admin/role*') ? 'active' : '' }}" 
+            <a class="nav-link {{ request()->is('admin/role*') || request()->routeIs('admin.users.*') ? '' : 'collapsed' }} {{ request()->is('admin/role*') || request()->routeIs('admin.users.*') ? 'active' : '' }}" 
                href="#" 
                data-bs-toggle="collapse" 
                data-bs-target="#collapseUsers" 
-               aria-expanded="{{ request()->is('admin/role*') ? 'true' : 'false' }}" 
+               aria-expanded="{{ request()->is('admin/role*') || request()->routeIs('admin.users.*') ? 'true' : 'false' }}" 
                aria-controls="collapseUsers">
                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                 User Management
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse {{ request()->is('admin/role*') ? 'show' : '' }}" 
+            <div class="collapse {{ request()->is('admin/role*') || request()->routeIs('admin.users.*') ? 'show' : '' }}" 
                  id="collapseUsers" 
                  aria-labelledby="headingOne" 
                  data-bs-parent="#sidenavAccordion">
@@ -34,9 +34,15 @@
             </div>
 
             <!-- Service Categories -->
-            <a class="nav-link" href="/admin/services">
+            <a class="nav-link {{ request()->is('admin/services*') ? 'active' : '' }}" href="{{ url('/admin/services') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-hammer"></i></div>
                 Service Categories
+            </a>
+
+            <!-- Customer Comments / Job Requests -->
+            <a class="nav-link {{ request()->routeIs('admin.comments.*') ? 'active' : '' }}" href="{{ route('admin.comments.index') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>
+                Customer Comments
             </a>
         </div>
     </div>
