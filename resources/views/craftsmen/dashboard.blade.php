@@ -245,7 +245,7 @@
                                             <div class="modal fade text-start" id="acceptModal{{ $job->id }}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content rounded-4 border-0 shadow text-dark">
-                                                        <form action="{{ route('job.respond', $job->id) }}" method="POST">
+                                                        <form action="{{ route('craftsmen.job.respond', $job->id) }}" method="POST">
                                                             @csrf
                                                             <div class="modal-header border-0 pb-0">
                                                                 <h5 class="modal-title fw-bold">Kubali Ombi & Anza Chat</h5>
@@ -276,7 +276,7 @@
                                             <div class="modal fade text-start" id="offerModal{{ $job->id }}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content rounded-4 border-0 shadow text-dark">
-                                                        <form action="{{ route('job.respond', $job->id) }}" method="POST">
+                                                        <form action="{{ route('craftsmen.job.respond', $job->id) }}" method="POST">
                                                             @csrf
                                                             <div class="modal-header border-0 pb-0">
                                                                 <h5 class="modal-title fw-bold">Tuma Ofa ya Bei Rasmi</h5>

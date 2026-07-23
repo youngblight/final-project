@@ -10,66 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* BACKGROUND: Inatumia picha yako ya mwanzo */
-        .customer-register-body {
-            background-image: url("{{ asset('image_383787.png') }}");
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 40px 0;
-        }
-
-        .custom-card-header { 
-            background-color: #d1e0f7 !important; 
-            padding: 25px;
-        }
-
-        .btn-register { 
-            background-color: #5a91e6; 
-            color: white; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-        }
-
-        .btn-register:hover { 
-            background-color: #4a7dc9; 
-            box-shadow: 0 4px 12px rgba(90, 145, 230, 0.3); 
-            color: white;
-        }
-
-        .form-label { 
-            font-weight: 600; 
-            color: #333; 
-        }
-
-        /* Hii inasaidia kadi iwe pana zaidi kwenye vioo vikubwa */
-        @media (min-width: 768px) {
-            .wide-card { min-width: 650px; }
-        }
-
-        .form-control {
-            padding: 11px 15px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-        }
-
-        .form-control:focus {
-            border-color: #5a91e6;
-            box-shadow: 0 0 0 3px rgba(90, 145, 230, 0.15);
-        }
-    </style>
 </head>
 <body>
 

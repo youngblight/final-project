@@ -1,6 +1,9 @@
-@extends('layouts.craftsmen') {{-- Inatumia muundo mkuu wa wrapper --}}
+@extends('layouts.craftsmen') 
 
 @section('content')
+
+<link href="{{ asset('craftsmen/css/style.css') }}" rel="stylesheet" />
+
 <div class="container py-4">
     
     <div class="row mb-4">
@@ -127,86 +130,4 @@
         @endif
     </div>
 </div>
-
-<style>
-    .card-gradient-success {
-        background: linear-gradient(135deg, #198754 0%, #2bd47e 100%);
-        border-radius: 1rem !important;
-    }
-    .card-gradient-primary {
-        background: linear-gradient(135deg, #0d6efd 0%, #3ca0ff 100%);
-        border-radius: 1rem !important;
-    }
-    .fw-extrabold { font-weight: 800; }
-    
-    .stat-icon-box {
-        width: 54px;
-        height: 54px;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(4px);
-    }
-
-    .badge-custom-success {
-        background-color: rgba(25, 135, 84, 0.1) !important;
-        color: #198754 !important;
-        border-radius: 30px;
-        padding: 6px 14px;
-        font-weight: 700;
-        font-size: 10px;
-        letter-spacing: 0.5px;
-    }
-    .badge-custom-danger {
-        background-color: rgba(220, 53, 69, 0.1) !important;
-        color: #dc3545 !important;
-        border-radius: 30px;
-        padding: 6px 14px;
-        font-weight: 700;
-        font-size: 10px;
-        letter-spacing: 0.5px;
-    }
-    .badge-custom-secondary {
-        background-color: rgba(108, 117, 125, 0.1) !important;
-        color: #6c757d !important;
-        border-radius: 30px;
-        padding: 6px 14px;
-        font-weight: 700;
-        font-size: 10px;
-        letter-spacing: 0.5px;
-    }
-
-    .border-bottom-custom {
-        border-bottom: 1px solid #f1f5f9 !important;
-    }
-    .table-hover tbody tr:hover {
-        background-color: #f8fafc;
-        transition: background-color 0.2s ease-in-out;
-    }
-
-    .review-bubble {
-        display: block;
-        background-color: #f8f9fa;
-        color: #475569;
-        font-style: italic;
-        padding: 6px 12px;
-        border-radius: 8px;
-        margin-top: 4px;
-        max-width: 240px;
-        font-size: 11px;
-        line-height: 1.4;
-        border-left: 3px solid #cbd5e1;
-    }
-    .empty-state-icon {
-        width: 60px;
-        height: 60px;
-        background: #f1f5f9;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-</style>
 @endsection

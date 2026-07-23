@@ -102,3 +102,354 @@
         margin-right: 15px;
         color: #ffc107;
     }
+
+    /*welcome css*/
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* BACKGROUND: Inatumia picha yako nyeupe/hafifu */
+        .welcome-body {
+            background-image: url("image_383787.png");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #1e293b;
+            font-family: 'Poppins', sans-serif;
+            padding: 40px 0;
+        }
+
+        /* Upande wa Kushoto: Orodha ya Huduma */
+        .system-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #0f2027;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .system-desc {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            color: #334155;
+        }
+        
+        .feature-icon-box {
+            width: 40px;
+            height: 40px;
+            background-color: #0284c7;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
+        }
+
+        /* Upande wa Kulia: Kadi ya Kuingia (Login Box) */
+        .login-box {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            color: #333333;
+            border: 1px solid #e2e8f0;
+        }
+        .login-header {
+            text-align: center;
+            padding: 35px 20px 15px 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .login-logo {
+            height: 80px;
+            object-fit: contain;
+        }
+        .login-body {
+            padding: 30px 40px 40px 40px;
+            background-color: #f8fafc;
+        }
+        .form-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        .input-group-custom {
+            background: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            padding: 5px 15px;
+            border: 1px solid #cbd5e1;
+            transition: 0.3s;
+        }
+        .input-group-custom:focus-within {
+            border-color: #0284c7;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+        }
+        .input-group-custom i {
+            color: #94a3b8;
+            margin-right: 10px;
+            width: 16px;
+            text-align: center;
+        }
+        .input-group-custom input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 10px 5px;
+            font-size: 0.95rem;
+            color: #1e293b;
+        }
+        .input-group-custom input:focus {
+            outline: none;
+        }
+
+        .btn-signin {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+        }
+        .btn-signin:hover {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.3);
+            color: white;
+        }
+        
+        .forgot-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .forgot-link:hover {
+            color: #0284c7;
+            text-decoration: underline;
+        }
+        .terms-text {
+            font-size: 0.8rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        .terms-text a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+        .account-check-text {
+            color: #475569;
+        }
+        .register-link {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .register-link:hover {
+            color: #0369a1;
+            text-decoration: underline;
+        }
+
+        /* MTANDAO WA DIRISHA LA USAJILI (Modal Custom Styling) */
+        .register-choice-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        .register-choice-card:hover {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+            transform: translateY(-3px);
+            color: #0284c7;
+        }
+        .choice-icon {
+            font-size: 2.5rem;
+            color: #0284c7;
+            margin-bottom: 15px;
+        }
+        .choice-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .choice-desc {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    /*home_page css*/
+
+   
+    #map {
+        height: 500px;
+        width: 100%;
+        background-color: #eee;
+        border-radius: 0 0 8px 8px;
+    }
+    .service-card {
+        transition: 0.3s;
+    }
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .hero-section {
+        background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://img.freepik.com/free-photo/construction-worker-tools_23-2148743105.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    /* Payment and Rating Styles */
+    .payment-card { 
+        background: #f8f9fa; 
+        border: 1px solid #e2e8f0; 
+        color: #334155; 
+        border-radius: 15px; 
+    }
+    .tigo-bg { background-color: #0033a0; color: white; }
+    .rating-container { direction: rtl; display: inline-flex; }
+    .rating-container input { display: none; }
+    .rating-container label { color: #ddd !important; font-size: 40px; padding: 0 5px; cursor: pointer; transition: 0.2s; }
+    .rating-container label:hover, .rating-container label:hover ~ label,
+    .rating-container input:checked ~ label { color: #ffc107 !important; }
+    .star-rating-public { color: #ffc107 !important; font-size: 0.9rem; }
+    .star-rating-empty { color: #ccc !important; font-size: 0.9rem; }
+    
+    /* Comments / Review Styles */
+    .review-card { 
+        border-left: 3px solid #0d6efd; 
+        background: #f8f9fa;
+        transition: all 0.2s ease-in-out;
+    }
+    .review-card:hover {
+        background: #f1f5f9;
+    }
+
+/* chart css */
+
+
+    /* CSS maalum ya kuhakikisha muonekano hauharibiki hata kama layout haina Bootstrap nzuri */
+    .chat-wrapper {
+        border-radius: 16px !important;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+    .header-custom {
+        background-color: #0d6efd !important; /* Rangi ya Bluu */
+        border-bottom: none;
+    }
+    .header-title {
+        font-size: 1.15rem;
+    }
+    .back-btn {
+        font-size: 0.8rem !important;
+        transition: transform 0.2s ease;
+    }
+    .back-btn:hover {
+        transform: scale(1.05);
+    }
+    .chat-body-box {
+        height: 55vh; 
+        min-height: 350px;
+        overflow-y: auto; 
+        background-color: #f4f6f9 !important;
+    }
+    .message-bubble {
+        padding: 10px 16px;
+        border-radius: 18px;
+        max-width: 75%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        word-wrap: break-word;
+        display: inline-block;
+    }
+    .msg-sent {
+        background-color: #0d6efd !important; /* Rangi ya Bluu kwa ujumbe unaotuma */
+        border-bottom-right-radius: 4px;
+    }
+    .msg-received {
+        background-color: #ffffff !important; /* Rangi Nyeupe kwa unaopokea */
+        border: 1px solid #e9ecef;
+        border-bottom-left-radius: 4px;
+    }
+    .message-text {
+        font-size: 0.92rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+    .bubble-time {
+        font-size: 0.68rem;
+    }
+    .no-messages {
+        padding-top: 20%;
+    }
+    .footer-custom {
+        background-color: #ffffff !important;
+    }
+    .chat-input {
+        font-size: 0.95rem;
+        outline: none !important;
+        box-shadow: none !important;
+        height: 46px;
+        border: 1px solid transparent !important;
+    }
+    .chat-input:focus {
+        background-color: #fff !important;
+        border-color: #b6d4fe !important;
+    }
+    .send-btn {
+        width: 46px; 
+        height: 46px; 
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .send-btn:hover {
+        transform: scale(1.05);
+    }
+    .send-btn i {
+        font-size: 1.05rem;
+        margin-left: 2px; /* Kusawazisha ikoni katikati */
+    }
+    /* Inaboresha scrollbar ionekane nadhifu */
+    .chat-body-box::-webkit-scrollbar { width: 5px; }
+    .chat-body-box::-webkit-scrollbar-track { background: transparent; }
+    .chat-body-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }

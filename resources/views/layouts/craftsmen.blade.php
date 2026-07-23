@@ -7,44 +7,8 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="{{ asset('craftsmen/css/style.css') }}" rel="stylesheet" />
     
-    <style>
-        :root {
-            --dark-blue: #2c3e50;
-            --accent-blue: #3498db;
-            --light-gray: #f4f7f6;
-        }
-
-        body { background-color: var(--light-gray); font-family: 'Segoe UI', sans-serif; }
-        
-        .sidebar { min-height: 100vh; background: var(--dark-blue); color: white; }
-        .sidebar .nav-link { color: #bdc3c7; padding: 15px 20px; transition: 0.3s; }
-        .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #34495e; color: var(--accent-blue); border-left: 4px solid var(--accent-blue); }
-        
-        .navbar { 
-            background: var(--dark-blue) !important; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
-            border-bottom: 1px solid #34495e;
-        }
-        .navbar .navbar-text, .navbar .dropdown-toggle { color: #ecf0f1 !important; }
-
-        .main-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .main-content { flex-grow: 1; padding: 30px; }
-
-        footer { 
-            background: var(--dark-blue); 
-            color: #bdc3c7; 
-            padding: 15px 0;
-            border-top: 1px solid #34495e;
-        }
-        
-        .profile-img-nav { width: 35px; height: 35px; object-fit: cover; border-radius: 50%; border: 2px solid var(--accent-blue); }
-    </style>
 </head>
 <body>
 
@@ -63,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/craftsmen/craftsman/job-history">
+                    <a class="nav-link {{ request()->routeIs('craftsmen.job_history.index') ? 'active' : '' }}" href="{{ route('craftsmen.job_history.index') }}">
                         <i class="fas fa-history me-2"></i> Kumbukumbu za Kazi
                     </a>
                 </li>

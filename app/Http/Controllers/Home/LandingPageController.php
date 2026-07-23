@@ -25,6 +25,20 @@ class LandingPageController extends Controller
             ->get();
 
         return view('home.home_page', compact('craftsmen', 'services'));
+
+    }
+    public function aboutPage()
+    {
+        return view  ('home.about_page');
+    }
+    public function contactPage()
+    {
+        return view  ('home.contact_page');
+    }
+
+        public function servicePage()
+    {
+        return view  ('home.service_page');
     }
 
     public function viewServiceCraftsmen($slug)

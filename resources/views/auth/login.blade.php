@@ -10,68 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('auth/css/styles.css') }}">
 
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* BACKGROUND */
-        .login-standalone-body {
-            background-image: url("{{ asset('image_383787.png') }}");
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 40px 0;
-        }
-
-        .custom-card-header { 
-            background-color: #d1e0f7 !important; 
-            padding: 30px 20px !important;
-        }
-
-        .btn-login { 
-            background-color: #5a91e6; 
-            color: white; 
-            border: none; 
-            font-weight: bold;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .btn-login:hover { 
-            background-color: #4a80d4; 
-            color: white; 
-            box-shadow: 0 4px 12px rgba(90, 145, 230, 0.3);
-        }
-
-        .form-label {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-control {
-            padding: 11px 15px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-        }
-
-        .form-control:focus {
-            border-color: #5a91e6;
-            box-shadow: 0 0 0 3px rgba(90, 145, 230, 0.15);
-        }
-
-        .login-card-width {
-            max-width: 520px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
 

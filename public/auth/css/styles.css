@@ -1,0 +1,238 @@
+    /*login css*/
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* BACKGROUND */
+        .login-standalone-body {
+            background-image: url("{{ asset('image_383787.png') }}");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .custom-card-header { 
+            background-color: #d1e0f7 !important; 
+            padding: 30px 20px !important;
+        }
+
+        .btn-login { 
+            background-color: #5a91e6; 
+            color: white; 
+            border: none; 
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover { 
+            background-color: #4a80d4; 
+            color: white; 
+            box-shadow: 0 4px 12px rgba(90, 145, 230, 0.3);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            padding: 11px 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .form-control:focus {
+            border-color: #5a91e6;
+            box-shadow: 0 0 0 3px rgba(90, 145, 230, 0.15);
+        }
+
+        .login-card-width {
+            max-width: 520px;
+            width: 100%;
+        }
+
+
+
+        /*register css */
+        
+   
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* BACKGROUND: Inatumia picha yako ya mwanzo */
+        .customer-register-body {
+            background-image: url("{{ asset('image_383787.png') }}");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .custom-card-header { 
+            background-color: #d1e0f7 !important; 
+            padding: 25px;
+        }
+
+        .btn-register { 
+            background-color: #5a91e6; 
+            color: white; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+        }
+
+        .btn-register:hover { 
+            background-color: #4a7dc9; 
+            box-shadow: 0 4px 12px rgba(90, 145, 230, 0.3); 
+            color: white;
+        }
+
+        .form-label { 
+            font-weight: 600; 
+            color: #333; 
+        }
+
+        /* Hii inasaidia kadi iwe pana zaidi kwenye vioo vikubwa */
+        @media (min-width: 768px) {
+            .wide-card { min-width: 650px; }
+        }
+
+        .form-control {
+            padding: 11px 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .form-control:focus {
+            border-color: #5a91e6;
+            box-shadow: 0 0 0 3px rgba(90, 145, 230, 0.15);
+        }
+    /*craftsmen register*/
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* BACKGROUND: Inatumia picha yako ili iendane na welcome page */
+        .registration-body {
+            background-image: url("{{ asset('image_383787.png') }}");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        /* Kadi kuu ya usajili */
+        .register-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        /* Sehemu ya juu ya kadi yenye Nembo */
+        .register-header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .login-logo {
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .register-body-content {
+            padding: 40px;
+        }
+
+        /* Mitindo ya vichwa vya habari vya sehemu (Sections) */
+        .section-title {
+            color: #0284c7;
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        /* Mitindo ya fomu inputs */
+        .form-label-custom {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .form-control-custom {
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            background-color: #f8fafc;
+        }
+
+        .form-control-custom:focus {
+            border-color: #0284c7;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        /* Kitufe cha kujisajili */
+        .btn-register {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+
+        .btn-register:hover {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.35);
+            color: white;
+        }
+
+        .back-to-login {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .back-to-login:hover {
+            color: #0284c7;
+            text-decoration: underline;
+        }
+    

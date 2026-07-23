@@ -28,13 +28,13 @@
                         <a class="nav-link text-white fw-bold px-3" href="/home">Nyumbani</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="#">Kuhusu Sisi</a>
+                        <a class="nav-link text-white fw-bold px-3" href="/about_us">Kuhusu Sisi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="#">Wasiliana Nasi</a>
+                        <a class="nav-link text-white fw-bold px-3" href="/contact_us">Wasiliana Nasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold px-3" href="#">Huduma Zinazopatikana</a>
+                        <a class="nav-link text-white fw-bold px-3" href="/services">Huduma Zinazopatikana</a>
                     </li>
                 </ul>
 

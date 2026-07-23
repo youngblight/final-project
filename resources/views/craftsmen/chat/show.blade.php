@@ -4,7 +4,8 @@
 <!-- Tunajihami kwa kuweka Bootstrap na FontAwesome CDN kwa ajili ya faili hili tu ikiwa kwenye layout hazipo -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+ <link href="{{ asset('craftsmen/css/style.css') }}" rel="stylesheet" />
+ 
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
@@ -82,90 +83,5 @@
     });
 </script>
 
-<style>
-    /* CSS maalum ya kuhakikisha muonekano hauharibiki hata kama layout haina Bootstrap nzuri */
-    .chat-wrapper {
-        border-radius: 16px !important;
-        overflow: hidden;
-        background-color: #ffffff;
-    }
-    .header-custom {
-        background-color: #0d6efd !important; /* Rangi ya Bluu */
-        border-bottom: none;
-    }
-    .header-title {
-        font-size: 1.15rem;
-    }
-    .back-btn {
-        font-size: 0.8rem !important;
-        transition: transform 0.2s ease;
-    }
-    .back-btn:hover {
-        transform: scale(1.05);
-    }
-    .chat-body-box {
-        height: 55vh; 
-        min-height: 350px;
-        overflow-y: auto; 
-        background-color: #f4f6f9 !important;
-    }
-    .message-bubble {
-        padding: 10px 16px;
-        border-radius: 18px;
-        max-width: 75%;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-        word-wrap: break-word;
-        display: inline-block;
-    }
-    .msg-sent {
-        background-color: #0d6efd !important; /* Rangi ya Bluu kwa ujumbe unaotuma */
-        border-bottom-right-radius: 4px;
-    }
-    .msg-received {
-        background-color: #ffffff !important; /* Rangi Nyeupe kwa unaopokea */
-        border: 1px solid #e9ecef;
-        border-bottom-left-radius: 4px;
-    }
-    .message-text {
-        font-size: 0.92rem;
-        line-height: 1.4;
-        margin: 0;
-    }
-    .bubble-time {
-        font-size: 0.68rem;
-    }
-    .no-messages {
-        padding-top: 20%;
-    }
-    .footer-custom {
-        background-color: #ffffff !important;
-    }
-    .chat-input {
-        font-size: 0.95rem;
-        outline: none !important;
-        box-shadow: none !important;
-        height: 46px;
-        border: 1px solid transparent !important;
-    }
-    .chat-input:focus {
-        background-color: #fff !important;
-        border-color: #b6d4fe !important;
-    }
-    .send-btn {
-        width: 46px; 
-        height: 46px; 
-        transition: background-color 0.2s ease, transform 0.1s ease;
-    }
-    .send-btn:hover {
-        transform: scale(1.05);
-    }
-    .send-btn i {
-        font-size: 1.05rem;
-        margin-left: 2px; /* Kusawazisha ikoni katikati */
-    }
-    /* Inaboresha scrollbar ionekane nadhifu */
-    .chat-body-box::-webkit-scrollbar { width: 5px; }
-    .chat-body-box::-webkit-scrollbar-track { background: transparent; }
-    .chat-body-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-</style>
+
 @endsection

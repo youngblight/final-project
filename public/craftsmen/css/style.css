@@ -1,0 +1,205 @@
+
+        :root {
+            --dark-blue: #2c3e50;
+            --accent-blue: #3498db;
+            --light-gray: #f4f7f6;
+        }
+
+        body { background-color: var(--light-gray); font-family: 'Segoe UI', sans-serif; }
+        
+        .sidebar { min-height: 100vh; background: var(--dark-blue); color: white; }
+        .sidebar .nav-link { color: #bdc3c7; padding: 15px 20px; transition: 0.3s; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #34495e; color: var(--accent-blue); border-left: 4px solid var(--accent-blue); }
+        
+        .navbar { 
+            background: var(--dark-blue) !important; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+            border-bottom: 1px solid #34495e;
+        }
+        .navbar .navbar-text, .navbar .dropdown-toggle { color: #ecf0f1 !important; }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-content { flex-grow: 1; padding: 30px; }
+
+        footer { 
+            background: var(--dark-blue); 
+            color: #bdc3c7; 
+            padding: 15px 0;
+            border-top: 1px solid #34495e;
+        }
+        
+        .profile-img-nav { width: 35px; height: 35px; object-fit: cover; border-radius: 50%; border: 2px solid var(--accent-blue); }
+   
+        /* chat css*/
+
+    /* CSS maalum ya kuhakikisha muonekano hauharibiki hata kama layout haina Bootstrap nzuri */
+    .chat-wrapper {
+        border-radius: 16px !important;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+    .header-custom {
+        background-color: #0d6efd !important; /* Rangi ya Bluu */
+        border-bottom: none;
+    }
+    .header-title {
+        font-size: 1.15rem;
+    }
+    .back-btn {
+        font-size: 0.8rem !important;
+        transition: transform 0.2s ease;
+    }
+    .back-btn:hover {
+        transform: scale(1.05);
+    }
+    .chat-body-box {
+        height: 55vh; 
+        min-height: 350px;
+        overflow-y: auto; 
+        background-color: #f4f6f9 !important;
+    }
+    .message-bubble {
+        padding: 10px 16px;
+        border-radius: 18px;
+        max-width: 75%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        word-wrap: break-word;
+        display: inline-block;
+    }
+    .msg-sent {
+        background-color: #0d6efd !important; /* Rangi ya Bluu kwa ujumbe unaotuma */
+        border-bottom-right-radius: 4px;
+    }
+    .msg-received {
+        background-color: #ffffff !important; /* Rangi Nyeupe kwa unaopokea */
+        border: 1px solid #e9ecef;
+        border-bottom-left-radius: 4px;
+    }
+    .message-text {
+        font-size: 0.92rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+    .bubble-time {
+        font-size: 0.68rem;
+    }
+    .no-messages {
+        padding-top: 20%;
+    }
+    .footer-custom {
+        background-color: #ffffff !important;
+    }
+    .chat-input {
+        font-size: 0.95rem;
+        outline: none !important;
+        box-shadow: none !important;
+        height: 46px;
+        border: 1px solid transparent !important;
+    }
+    .chat-input:focus {
+        background-color: #fff !important;
+        border-color: #b6d4fe !important;
+    }
+    .send-btn {
+        width: 46px; 
+        height: 46px; 
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .send-btn:hover {
+        transform: scale(1.05);
+    }
+    .send-btn i {
+        font-size: 1.05rem;
+        margin-left: 2px; /* Kusawazisha ikoni katikati */
+    }
+    /* Inaboresha scrollbar ionekane nadhifu */
+    .chat-body-box::-webkit-scrollbar { width: 5px; }
+    .chat-body-box::-webkit-scrollbar-track { background: transparent; }
+    .chat-body-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+    /* job history */
+    
+    .card-gradient-success {
+        background: linear-gradient(135deg, #198754 0%, #2bd47e 100%);
+        border-radius: 1rem !important;
+    }
+    .card-gradient-primary {
+        background: linear-gradient(135deg, #0d6efd 0%, #3ca0ff 100%);
+        border-radius: 1rem !important;
+    }
+    .fw-extrabold { font-weight: 800; }
+    
+    .stat-icon-box {
+        width: 54px;
+        height: 54px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+    }
+
+    .badge-custom-success {
+        background-color: rgba(25, 135, 84, 0.1) !important;
+        color: #198754 !important;
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+    .badge-custom-danger {
+        background-color: rgba(220, 53, 69, 0.1) !important;
+        color: #dc3545 !important;
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+    .badge-custom-secondary {
+        background-color: rgba(108, 117, 125, 0.1) !important;
+        color: #6c757d !important;
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    .border-bottom-custom {
+        border-bottom: 1px solid #f1f5f9 !important;
+    }
+    .table-hover tbody tr:hover {
+        background-color: #f8fafc;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .review-bubble {
+        display: block;
+        background-color: #f8f9fa;
+        color: #475569;
+        font-style: italic;
+        padding: 6px 12px;
+        border-radius: 8px;
+        margin-top: 4px;
+        max-width: 240px;
+        font-size: 11px;
+        line-height: 1.4;
+        border-left: 3px solid #cbd5e1;
+    }
+    .empty-state-icon {
+        width: 60px;
+        height: 60px;
+        background: #f1f5f9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }

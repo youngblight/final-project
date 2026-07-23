@@ -3,53 +3,7 @@
 @section('title', 'Nyumbani - Fundi Digital')
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-<style>
-    #map {
-        height: 500px;
-        width: 100%;
-        background-color: #eee;
-        border-radius: 0 0 8px 8px;
-    }
-    .service-card {
-        transition: 0.3s;
-    }
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-    }
-    .hero-section {
-        background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://img.freepik.com/free-photo/construction-worker-tools_23-2148743105.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-    
-    /* Payment and Rating Styles */
-    .payment-card { 
-        background: #f8f9fa; 
-        border: 1px solid #e2e8f0; 
-        color: #334155; 
-        border-radius: 15px; 
-    }
-    .tigo-bg { background-color: #0033a0; color: white; }
-    .rating-container { direction: rtl; display: inline-flex; }
-    .rating-container input { display: none; }
-    .rating-container label { color: #ddd !important; font-size: 40px; padding: 0 5px; cursor: pointer; transition: 0.2s; }
-    .rating-container label:hover, .rating-container label:hover ~ label,
-    .rating-container input:checked ~ label { color: #ffc107 !important; }
-    .star-rating-public { color: #ffc107 !important; font-size: 0.9rem; }
-    .star-rating-empty { color: #ccc !important; font-size: 0.9rem; }
-    
-    /* Comments / Review Styles */
-    .review-card { 
-        border-left: 3px solid #0d6efd; 
-        background: #f8f9fa;
-        transition: all 0.2s ease-in-out;
-    }
-    .review-card:hover {
-        background: #f1f5f9;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
 @section('content')
     {{-- 1. UJUMBE WA MAFANIKIO NA FOMU YA UKADIRIAJI --}}
