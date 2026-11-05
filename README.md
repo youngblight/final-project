@@ -15,7 +15,6 @@ Main Features
 •	Search and browsing of craftsmen by skill
 •	Customer requests for services
 •	Management of data through a MySQL database
-Note: the exact features depend on the final implementation of the system.
 Technologies Used
 Area	Technology
 Backend framework	Laravel 12 (PHP 8.2+)
