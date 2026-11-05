@@ -67,4 +67,7 @@ php artisan test
 Author
 Siraju Mshamu Kikula Software Developer Email: sirajukikula435@gmail.com GitHub: youngblight
 License
-This project is open-sourced under the MIT license.
+This project is open-sourced under the MIT license
+<img width="626" height="468" alt="image" src="https://github.com/user-attachments/assets/a0195ee5-ffbb-4585-9c7e-f34dd0353310" />
+<img width="583" height="643" alt="image" src="https://github.com/user-attachments/assets/69792072-ddd0-40d3-a805-32f53c9353f3" />
+<img width="763" height="462" alt="image" src="https://github.com/user-attachments/assets/fbcae578-a233-4856-86b7-1b6560de22b4" />
