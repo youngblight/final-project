@@ -1,59 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Digital Connection for Skilled Craftsmen with Customer
+A web-based system that connects skilled craftsmen (such as carpenters, welders, plumbers, electricians, and tailors) with customers who need their services. The system makes it easier for customers to find the right craftsman, and for craftsmen to reach more customers, without depending on word of mouth alone.
+This project was developed as my final-year academic project for the Bachelor of Science in Information Communication and Technology with Business at Mzumbe University.
+Problem Statement
+Skilled craftsmen often depend on personal contacts to find work, while customers struggle to find reliable craftsmen quickly. This leads to lost income for craftsmen and wasted time for customers. This system provides a digital platform that connects both sides in one place.
+Objectives
+Provide a platform where craftsmen can present their skills and services.
+Help customers find and contact craftsmen easily.
+Improve how craftsmen and customers communicate and organize work requests.
+Support skilled craftsmen in reaching a wider market.
+Main Features
+User registration and login (authentication)
+Separate roles for craftsmen and customers
+Craftsman profiles showing skills and services
+Search and browsing of craftsmen by skill
+Customer requests for services
+Management of data through a MySQL database
+Note: the exact features depend on the final implementation of the system.
+Technologies Used
+Area
+Technology
+Backend framework
+Laravel 12 (PHP 8.2+)
+Database
+MySQL
+Frontend
+HTML, CSS, JavaScript, Tailwind CSS
+Build tool
+Vite
+Authentication
+Laravel Breeze
+Testing
+Pest
+Installation Guide
+Requirements
+PHP 8.2 or higher
+Composer
+Node.js and npm
+MySQL (for example through XAMPP or WAMP)
+Steps
+Clone the repository
+git clone https://github.com/youngblight/final-project.git
+cd final-project
+Install PHP dependencies
+composer install
+Create the environment file
+cp .env.example .env
+php artisan key:generate
+Set up the database
+Create an empty MySQL database, then open the .env file and update these values:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD=
+Run the migrations
+php artisan migrate
+Install and build frontend assets
+npm install
+npm run build
+Start the application
+php artisan serve
+Open http://127.0.0.1:8000 in your browser.
+Project Structure
+app/          Application logic (models, controllers)
+database/     Migrations, factories, and seeders
+resources/    Views, CSS, and JavaScript
+routes/       Web routes
+public/       Public entry point and assets
+tests/        Automated tests
+Running Tests
+php artisan test
+Author
+Siraju Mshamu Kikula
+Software Developer
+Email: sirajukikula435@gmail.com
+GitHub: youngblight
+License
+This project is open-sourced under the MIT license.
